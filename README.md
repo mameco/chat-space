@@ -39,7 +39,6 @@
 |------|----|------|
 |text|text|null: false|
 |image|string||
-|created_at|timestamps||
 |groups_users_id|integer|null: false, foreign_key: true|
 
 ### Association
