@@ -1,0 +1,32 @@
+.Side-bar
+  .Side-header
+    .Side-header-box
+      .Side-header-box__user-name
+        name
+      .Side-header-box__icon
+        %ul.icon-list
+          %li
+            = link_to "#", class: "icon-btn" do
+              = icon('fas', 'edit')
+          %li.setting
+            = link_to "#", class: "icon-btn" do
+              = icon('fas', 'cog')
+
+  .Side-main
+    = link_to "#", class: "Side-content" do
+      .Side-content__group-name
+        group name
+      .Side-content__message
+        message
+        
+    = link_to "#", class: "Side-content" do
+      .Side-content__group-name
+        group name
+      .Side-content__message
+        message
+
+    = link_to "#", class: "Side-content" do
+      .Side-content__group-name
+        group name
+      .Side-content__message
+        message
