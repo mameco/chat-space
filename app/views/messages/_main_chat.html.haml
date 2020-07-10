@@ -1,0 +1,47 @@
+.Chat-main
+  .Main-header
+    .Main-header__summary
+      .Main-header__summary__group-name
+        group name
+      .Main-header__summary__member
+        Member : 
+    .Main-header__edit-btn
+      = link_to "#", class: "edit-btn" do
+        Edit
+  .Message-list
+    .Contents
+      .Content
+        .Content-top
+          .Content-top__user-name
+            name
+          .Content-top__date
+            2020年07月09日 18時30分
+        .Content-bottom
+          message
+
+      .Content
+        .Content-top
+          .Content-top__user-name
+            name
+          .Content-top__date
+            2020年07月09日 18時30分
+        .Content-bottom
+          message
+
+      .Content
+        .Content-top
+          .Content-top__user-name
+            name
+          .Content-top__date
+            2020年07月09日 18時30分
+        .Content-bottom
+          message
+      
+  .Footer
+    %form{ class: "message-form" }
+      .input-box
+        %input{ type: "text", placeholder: "type a message", class: "input-box__text" }
+        %label{ class: "input-box__image" }
+          = icon('far', 'image')
+          %input{ type: "file", class: "input-box__image__file" }
+      %input{ type: "submit", value: "Send", class: "submit-btn" }
