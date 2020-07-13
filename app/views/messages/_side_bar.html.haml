@@ -6,27 +6,17 @@
       .Side-header-box__icon
         %ul.icon-list
           %li
-            = link_to "#", class: "icon-btn" do
+            = link_to new_group_path, class: "icon-btn" do
               = icon('fas', 'edit')
           %li.setting
             = link_to edit_user_path(current_user), class: "icon-btn" do
               = icon('fas', 'cog')
 
   .Side-main
-    = link_to "#", class: "Side-content" do
-      .Side-content__group-name
-        group name
-      .Side-content__message
-        message
-        
-    = link_to "#", class: "Side-content" do
-      .Side-content__group-name
-        group name
-      .Side-content__message
-        message
-
-    = link_to "#", class: "Side-content" do
-      .Side-content__group-name
-        group name
-      .Side-content__message
-        message
+    - current_user.groups.each do |group|
+      .Side-content
+        = link_to '#' do
+          .Side-content__group-name
+            = group.name
+          .Side-content__message
+            message
