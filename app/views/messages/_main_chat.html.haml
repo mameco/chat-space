@@ -2,46 +2,23 @@
   .Main-header
     .Main-header__summary
       .Main-header__summary__group-name
-        group name
+        = @group.name
       .Main-header__summary__member
-        Member : 
+        = 'Member :'
+        - @group.users.each do |user|
+          = user.name
     .Main-header__edit-btn
-      = link_to "#", class: "edit-btn" do
+      = link_to edit_group_path(@group), class: "edit-btn" do
         Edit
   .Message-list
     .Contents
-      .Content
-        .Content-top
-          .Content-top__user-name
-            name
-          .Content-top__date
-            2020年07月09日 18時30分
-        .Content-bottom
-          message
-
-      .Content
-        .Content-top
-          .Content-top__user-name
-            name
-          .Content-top__date
-            2020年07月09日 18時30分
-        .Content-bottom
-          message
-
-      .Content
-        .Content-top
-          .Content-top__user-name
-            name
-          .Content-top__date
-            2020年07月09日 18時30分
-        .Content-bottom
-          message
+      = render @messages
       
   .Footer
-    %form{ class: "message-form" }
+    = form_with model: [@group, @message], html: {class: "message-form"}, local: true do |f|
       .input-box
-        %input{ type: "text", placeholder: "type a message", class: "input-box__text" }
-        %label{ class: "input-box__image" }
+        = f.text_field :content, class: "input-box__text", placeholder: 'type a message'
+        = f.label :image, class: "input-box__image" do
           = icon('far', 'image')
-          %input{ type: "file", class: "input-box__image__file" }
-      %input{ type: "submit", value: "Send", class: "submit-btn" }
+          = f.file_field :image, class: "input-box__image__file"
+      = f.submit 'Send', class: 'submit-btn'
