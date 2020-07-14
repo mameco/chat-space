@@ -15,8 +15,8 @@
   .Side-main
     - current_user.groups.each do |group|
       .Side-content
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .Side-content__group-name
             = group.name
           .Side-content__message
-            message
+            = group.show_last_message
